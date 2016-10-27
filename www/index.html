@@ -53,8 +53,9 @@
 
         <ion-list>
           <ion-item  ng-repeat="image in images">
-            <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" height="200">
-          </ion-item>
+          {{image.id}}
+<!--             <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" height="200">
+ -->          </ion-item>
         </ion-list>
         <ion-infinite-scroll on-infinite="showMore()" distance="10%" ng-if="!moredata"></ion-infinite-scroll>
         </div>
