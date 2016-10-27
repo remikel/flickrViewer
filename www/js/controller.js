@@ -18,7 +18,7 @@ app.controller('myCtrl', function($scope, $http, $location, $window) {
 	var refresh = function(){
 		paramValue = $location.path();
 		page = 1;
-		tag =paramValue ? paramValue.slice(1) : 'inspection';
+		tag = paramValue.slice(1) ? paramValue.slice(1) : 'inspection';
 		$scope.images = [];
 		$scope.tag = tag;
 		$scope.showMore();
@@ -27,7 +27,8 @@ app.controller('myCtrl', function($scope, $http, $location, $window) {
 
 	// Load pictures and the next
 	$scope.showMore = function() {
-		params.tags = 'inspection';
+		console.log(paramValue);
+		params.tags = tag;
 		params.page = page;
 		$http.get('https://api.flickr.com/services/rest/', { params : params })
 		.success(function(data) {
