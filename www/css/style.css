@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
 .image{
+	max-width: 600px;
 	width:100%;
+}
+.item{
+	text-align: center;
 }

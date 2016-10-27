@@ -18,7 +18,7 @@ app.controller('myCtrl', function($scope, $http, $location, $window) {
 	var refresh = function(){
 		paramValue = $location.path();
 		page = 1;
-		tag = $location.path() ? $location.path().slice(1) : 'inspection';
+		tag =paramValue ? paramValue.slice(1) : 'inspection';
 		$scope.images = [];
 		$scope.tag = tag;
 		$scope.showMore();
@@ -27,11 +27,11 @@ app.controller('myCtrl', function($scope, $http, $location, $window) {
 
 	// Load pictures and the next
 	$scope.showMore = function() {
-		params.tags = tag;
+		params.tags = 'inspection';
 		params.page = page;
 		$http.get('https://api.flickr.com/services/rest/', { params : params })
 		.success(function(data) {
-			if (data['photos']['photo'].length == 0)
+			if (data['photos'] && data['photos']['photo'].length == 0)
 				$scope.moredata = true;
 			$scope.images = $scope.images.concat(data['photos']['photo']);
 			$scope.$broadcast('scroll.infiniteScrollComplete');
