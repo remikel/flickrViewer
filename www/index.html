@@ -45,19 +45,22 @@
       <form ng-submit="search()">
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" ng-model="tag">
-          <button type="submit" value="Valid"  class="button">Valider</button>
+          <input type="text" placeholder="Search" ng-model="tag" list="tags">
+          <datalist id="tags">
+            <option data-ng-repeat="item in tags" value="{{item}}" />
+          </datalist>
+          <button type="submit" value="Valid"  class="button"><i class="ionicons ion-search"></i></button>
         </label>
         </form>
       </div>
 
         <ion-list>
           <ion-item  ng-repeat="image in images">
-          {{image.id}}
-<!--             <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" height="200">
- -->          </ion-item>
+            <img src="https://farm{{image.farm}}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" height="100">{{image.id}}
+          </ion-item>
         </ion-list>
         <ion-infinite-scroll on-infinite="showMore()" distance="10%" ng-if="!moredata"></ion-infinite-scroll>
+        <span ng-show="moredata">No more results.</span>
         </div>
       </ion-content>
     </ion-pane>
