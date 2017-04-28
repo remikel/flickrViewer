@@ -5,7 +5,7 @@ app.controller('myCtrl', function($scope, $http, $location, $window) {
 	var page;
 	var tag;
 	var params = {
-		api_key : 'f75bf400c7720eb42bd8b8dd14765dfc',
+		api_key : /* YOUR API KEY */,
 		method : 'flickr.photos.search',
 		format : 'json',
 		nojsoncallback : 'true',
